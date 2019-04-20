@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardin", "Cardin\Cardin.csproj", "{8E23660C-9F98-4D95-8E27-7E0BEA9FCCD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E23660C-9F98-4D95-8E27-7E0BEA9FCCD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E23660C-9F98-4D95-8E27-7E0BEA9FCCD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E23660C-9F98-4D95-8E27-7E0BEA9FCCD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E23660C-9F98-4D95-8E27-7E0BEA9FCCD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43C6F458-C58B-4D7E-AF18-77B2E10CE51A}
+	EndGlobalSection
+EndGlobal

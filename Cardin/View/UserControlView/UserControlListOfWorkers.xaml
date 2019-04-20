@@ -1,0 +1,164 @@
+﻿<UserControl x:Class="Cardin.View.UserControlView.UserControlListOfWorkers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cardin.View.UserControlView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#FF1671B6"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="0, 0, 1, 0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="0, 0, 1, 0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid x:Name="gridAttendeeList">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnNewAttendees" Background="#FF222222" Content="New Attendees" FontSize="15" HorizontalAlignment="Right" FontFamily="Segoe UI Light" Click="btnNewAttendees_Click"/>
+            <DataGrid x:Name="dataGrid" Grid.Row="1" Margin="0,10" CanUserReorderColumns="True" BorderThickness="1" BorderBrush="Gray" Width="734" AlternatingRowBackground="LightBlue"
+         AlternationCount="2" AutoGenerateColumns ="False" SelectionChanged="dataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Name" Width="3*" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="10,0" Orientation="Horizontal">
+                                    <Border Width="35" Height="35" CornerRadius="40">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding profileImagePath}" Stretch="UniformToFill"/>
+                                        </Border.Background>
+                                        <Border.Effect>
+                                            <DropShadowEffect Color="White" BlurRadius="5" ShadowDepth="1"/>
+                                        </Border.Effect>
+                                    </Border>
+                                    <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" FontSize="15" Text="{Binding fullName}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Designation" Width="2*" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                                <TextBlock Margin="10.0" VerticalAlignment="Center" FontSize="15" Text="{Binding post}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Ex. Number" Width="2*" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10.0" VerticalAlignment="Center" FontSize="15" Text="{Binding extentionNo}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Engagement Type" Width="2*" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10.0" VerticalAlignment="Center" FontSize="15" Text="{Binding engagementType}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid x:Name="gridNewAttendees" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtFirstName" Margin="5"  materialDesign:HintAssist.Hint="First Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="input_TextChanged" FontSize="15"  />
+                <TextBox x:Name="txtlastName" Grid.Column="1" Margin="5"  materialDesign:HintAssist.Hint="Last Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="input_TextChanged" FontSize="15"  />
+            </Grid>
+            <Grid  Grid.Row="1" Margin="0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtPhoneNo" Margin="5"  materialDesign:HintAssist.Hint="Official Phone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="input_TextChanged" FontSize="15"  />
+                <TextBox x:Name="txtExtentionNo" Grid.Column="1" Margin="5"  materialDesign:HintAssist.Hint="Office Extension" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="input_TextChanged" FontSize="15"  />
+            </Grid>
+            <TextBox x:Name="txtEmail" Grid.Row="2" Margin="0,5"  materialDesign:HintAssist.Hint="Official Email Address" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="input_TextChanged" FontSize="15"  />
+            <Grid Grid.Row="3" Margin="0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="cbxPost" Margin="5" IsSynchronizedWithCurrentItem ="True" materialDesign:HintAssist.Hint="Post" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="15">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding name}" FontSize="15" Foreground="Black"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox x:Name="cbxEngagement" Grid.Column="1" Margin="5" IsSynchronizedWithCurrentItem ="True" materialDesign:HintAssist.Hint="Engagement Type"  Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="15">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding name}" FontSize="15" Foreground="Black"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="4" Margin="0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Left" Margin="0,0,5,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Border x:Name="brImage" Grid.Row="0" Width="270" BorderThickness="0.5" BorderBrush="LightGray">
+                        <Image x:Name="imgProfile" Width="270" Height="270"/>
+                    </Border>
+                    <Button x:Name="btnUploadPassportImg" Width="270" Grid.Row="1" VerticalContentAlignment="Center" Content="Add" FontSize="15" FontFamily="Segoe UI Light" Click="btnUploadPassportImg_Click"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Grid.Column="1" Margin="5,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderThickness="0.5" Width="270" BorderBrush="LightGray">
+                        <Image x:Name="imgSignature" Width="270" Height="270"/>
+                    </Border>
+                    <Button x:Name="btnUploadSignatureImg" Width="270" Grid.Row="1" VerticalContentAlignment="Center" Content="Add" FontSize="15" FontFamily="Segoe UI Light" Click="btnUploadSignatureImg_Click"/>
+                </Grid>
+            </Grid>
+            <StackPanel Grid.Row="5" Margin="0,10" Orientation="Horizontal">
+                <TextBlock Text="Active" FontSize="15"/>
+                <ToggleButton x:Name="tglBtnActive" Margin="20,0" IsChecked="True"/>
+            </StackPanel>
+
+            <Button x:Name="btnSaveWorkers" IsEnabled="False" Grid.Row="6" Content="Save" Margin="0,5" FontSize="22" FontFamily="Segoe UI Light" Click="btnSaveWorkers_Click"/>
+            <Grid x:Name="grdProgressBar" Visibility="Collapsed" Grid.RowSpan="7" Background="LightGray" Opacity="0.6">
+                <ProgressBar IsIndeterminate="True"/>
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</UserControl>

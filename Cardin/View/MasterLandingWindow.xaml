@@ -1,0 +1,87 @@
+﻿<Window x:Class="Cardin.View.MasterLandingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cardin.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Height="600" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid Background="#FFEEEEEE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <StackPanel Height="40" Background="#FF1671B6" Orientation="Horizontal">
+                <Button x:Name="btnMenu" Margin="10,0" Width="30" Height="30" Foreground="White" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
+                    <materialDesign:PackIcon Kind="Menu" Width="20" Height="20"/>
+                </Button>
+                <TextBlock Text="CardIn" FontSize="15" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe UI Semibold"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="gridMenuLayout" Width="250" Background="#FF222222">
+                <ListView x:Name="listViewMenu" Margin="0 100" Foreground="LightGray" FontFamily="Lato" FontSize="18" SelectionChanged="listViewMenu_SelectionChanged">
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ClockIn" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Clock In/Out" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Worker" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Employees/Workers" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FormatListBulleted" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Menu" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="TruckDelivery" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Delivery" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Toolbox" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock Text="Configuration" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountStar" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Account" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="txtWindowHeader" Text="Header" FontSize="22" Foreground="Gray" Margin="20" FontFamily="Segoe UI Semibold"/>
+                <ScrollViewer Margin="20,0,20,20" Grid.Row="1">
+                    <Grid x:Name="gridContentLayout">
+
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+            
+        </Grid>
+    </Grid>
+    
+</Window>
